@@ -5,9 +5,8 @@ FROM java:8-jdk-alpine
 LABEL maintainer="siwar.mansouri@vistaprint.com"
 
 # Add the application's jar to the container
-COPY ./build/libs/gs-spring-boot-0.1.0.jar /usr/app/
-
 WORKDIR /usr/app
+COPY ./build/libs/gs-spring-boot-0.1.0.jar /usr/app/
 
 # Run the jar file
 RUN sh -c 'touch gs-spring-boot-0.1.0.jar'
