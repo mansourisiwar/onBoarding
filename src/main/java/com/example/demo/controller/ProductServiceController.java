@@ -28,7 +28,7 @@ public class ProductServiceController {
     @RequestMapping(value = "/products/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> deleteProduct(@PathVariable("id") String id) {
         productRepo.remove(id);
-        return new ResponseEntity<>("Product is deleted successsfully", HttpStatus.OK);
+        return new ResponseEntity<>("Product with id:"+id+" is deleted successsfully", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
@@ -36,13 +36,13 @@ public class ProductServiceController {
         productRepo.remove(id);
         product.setId(id);
         productRepo.put(id, product);
-        return new ResponseEntity<>("Product is updated successsfully", HttpStatus.OK);
+        return new ResponseEntity<>("Product with id:"+product.getId()+" is updated successsfully", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.POST)
     public ResponseEntity<Object> createProduct(@RequestBody Product product) {
         productRepo.put(product.getId(), product);
-        return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);
+        return new ResponseEntity<>("Product with id:"+product.getId()+" is created successfully", HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/products")
