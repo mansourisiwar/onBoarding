@@ -23,3 +23,13 @@ curl -d '{"id":"3","name":"SugarExtra"}' -H "Content-Type: application/json" -X 
 
 $DELETE
 curl -X DELETE localhost:8080/products/3
+
+### Run this application in a docker container using Dockerfile ###
+./gradlew build 
+
+docker build -t onboarding-app .
+
+docker images
+
+docker run -p 8090:8080 onboarding-app   (host operating system port: 8090 && port inside the container: 8080)
+
